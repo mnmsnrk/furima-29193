@@ -23,6 +23,7 @@
 | ---------------- | ---------- | ---------------------------- |
 | user             | references | null :false,foreign_key:true |
 | name             | string     | null: false                  |
+| item_text        | text       | null: false                  |
 | category_id      | integer    | null: false                  |
 | condition_id     | integer    | null: false                  |
 | postage_payer_id | integer    | null: false                  |
@@ -33,9 +34,9 @@
 ### Association
 - has_many :images
 - has_one :purchases
-- has_one :users
+- has_one :user
 
-## address テーブル
+## addresses テーブル
 
 | Column          | Type       | Options                      |
 | --------------- | ---------- | ---------------------------- |
@@ -47,7 +48,7 @@
 | purchase        | references | null: false,foreign_key:true |
 
 ### Association
-- has_one :purchases
+- belongs_to :purchase
 
 ## purchase テーブル
 
@@ -58,5 +59,5 @@
 
 ### Association
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 - belongs_to :user
