@@ -23,7 +23,7 @@
 | ---------------- | ---------- | ---------------------------- |
 | user             | references | null :false,foreign_key:true |
 | name             | string     | null: false                  |
-| item_text        | text       | null: false                  |
+| Description      | text       | null: false                  |
 | category_id      | integer    | null: false                  |
 | condition_id     | integer    | null: false                  |
 | postage_payer_id | integer    | null: false                  |
