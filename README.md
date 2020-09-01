@@ -14,7 +14,7 @@
 | birth_date      | date   | null: false                  |
 
 ### Association
-- has_many :item
+- has_many :items
 - has_many :purchases
 
 ## items テーブル
@@ -29,6 +29,8 @@
 | condition_id     | integer    | null: false                  |
 | postage_payer_id | integer    | null: false                  |
 | prefecture_id    | integer    | null: false                  |
+| handling_time_id | integer    | null: false                  |
+| price            | integer    | null: false                  |
 
 ### Association
 - has_many :images
@@ -42,7 +44,7 @@
 | post_code       | string     | null: false                  |
 | prefecture_id   | integer    | null: false,foreign_key:true |
 | city            | string     | null: false                  |
-| building_name   | string     | null: false                  |
+| building_name   | string     |                              |
 | tell            | string     | null: false,uniqueness :true |
 | purchase        | references | null: false,foreign_key:true |
 
@@ -67,42 +69,6 @@
 | user            | references | null: false,foreign_key:true |
 
 ### Association
-- has_many :images
 - belongs_to :items
 - belongs_to :address
-
-## category(active_hash) テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| category        | string     | null: false                  |
-
-### Association
-- 
-
-## condition(active_hash) テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| condition       | string     | null: false                  |
-
-### Association
-- 
-
-## handling_time(active_hash) テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| handling_time   | string     | null: false                  |
-
-## postage_payer(active_hash) テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| postage_payer   | string     | null: false                  |
-
-## prefecture(active_hash) テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| prefecture      | string     | null: false                  |
+- belongs_to :users
