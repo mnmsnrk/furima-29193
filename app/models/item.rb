@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :postage
 
   validates :category_id,:condition_id,:postage_id,:prefecture_id,:handling_id, numericality: { other_than: 1 } 
 
