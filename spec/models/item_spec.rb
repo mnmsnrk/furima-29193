@@ -60,6 +60,11 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
+      it "価格が10,000,000以上だと出品できない" do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
+    end
       it "販売価格は半角数字で入力しないと出品できない" do
         @item.price = "１０００"
         @item.valid?
