@@ -4,12 +4,12 @@ class ItemPurchase
   attr_accessor :post_code, :prefecture_id, :city,:house_number,:building_name,:tell, :price,:item_id,:user_id,:token,:purchase_id
 
   with_options presence: true do
-    validates :post_code, :prefecture_id, :city,:house_number,:tell
-    validates :city,:tell,:building_name
+    validates :token,:city,:house_number
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :prefecture_id, numericality: { other_than: 1 ,message: "Select"}
+    validates :tell, format: {with: /\A\d{11}\z/, message: "は、ハイフン抜きで入力してください"}
   end
-  
-  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+
   
   def save
     @purchase_id = Purchase.create(item_id: item_id,user_id: user_id)
