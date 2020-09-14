@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :sold_out ,only: [:index,:create]
 
 
   require 'payjp'
@@ -21,7 +23,6 @@ class PurchasesController < ApplicationController
 
    private
 
-
    def order_params
      params.permit(:item_id,:post_code,:prefecture_id,:city,:house_number,:building_name,:tell,:price,:token).merge(user_id: current_user.id)
    end
@@ -35,4 +36,11 @@ class PurchasesController < ApplicationController
        currency:'jpy'
      )
    end
+
+  def sold_out
+    @item = Item.find(params[:item_id])
+    if @item.purchase.present?
+      redirect_to root_path
+    end
+  end
 end
