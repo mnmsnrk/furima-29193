@@ -20,6 +20,7 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
+        <div id="image-list"></div>
       </div>
     </div>
     <%# /出品画像 %>
@@ -99,7 +100,7 @@
           <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
-        
+
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
