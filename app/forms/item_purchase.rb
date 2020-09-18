@@ -5,8 +5,8 @@ class ItemPurchase
 
   with_options presence: true do
     validates :token,:city,:house_number
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :prefecture_id, numericality: { other_than: 1 ,message: "Select"}
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は、ハイフンを入れて入力してください"}
+    validates :prefecture_id, numericality: { other_than: 1 ,message: "を選択してください"}
     validates :tell, format: {with: /\A\d{11}\z/, message: "は、ハイフン抜きで入力してください"}
   end
 
