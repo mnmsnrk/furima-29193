@@ -1,0 +1,34 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <h1>マイページ</h1>
+  <br>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ニックネーム</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メールアドレス</th>
+          <td class="detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カード番号</th>
+          <td class="detail-value"> <%= "**** **** **** " + @card[:last4] %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">有効期限</th>
+          <td class="detail-value"><%= @card[:exp_month] %>/<%= @card[:exp_month] %></td>
+        </tr>
+        
+      </tbody>
+    </table>
+     <%= link_to 'クレジットカードの登録',new_card_path, class: "item-red-btn" %>
+  </div>
+  <%# /商品の概要 %>
+  
+</div>
+
+<%= render "shared/footer" %>
