@@ -43,6 +43,7 @@
 | post_code       | string     | null: false                  |
 | prefecture_id   | integer    | null: false                  |
 | city            | string     | null: false                  |
+| house_numbe     | string     | null: false                  |
 | building_name   | string     |                              |
 | tell            | string     | null: false,uniqueness :true |
 | purchase        | references | null: false,foreign_key:true |
