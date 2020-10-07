@@ -20,6 +20,8 @@ ja:
         handling_id: 配送までの日数
       address:
         city: 市区町村
+      card:
+        card_token: カード情報
   activemodel:
     attributes:
       item_purchase:

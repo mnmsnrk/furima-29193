@@ -14,7 +14,6 @@ class ItemPurchase
   def save
     @purchase_id = Purchase.create(item_id: item_id,user_id: user_id)
     Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city,house_number: house_number, building_name: building_name,tell: tell,purchase_id: @purchase_id.id)
-  binding.pry
   end
 
 end
